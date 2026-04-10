@@ -2,7 +2,7 @@ import Card from './Card.vue';
 
 //👇 This default export determines where your story goes in the story list
 export default {
-  title: 'Card',
+  title: 'Components/Card',
   component: Card,
   argTypes: {
     title: 'String',
