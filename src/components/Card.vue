@@ -3,19 +3,28 @@
        <div class="media" :style="mediaBg" v-if="mediaHref"></div>
        <h1 class="title">{{ title }}</h1>
        <small class="subtitle">{{ subText }}</small>
-       <p class="supporting-text">{{ paragraph }}</p>
+       <p class="supporting-text mb-2">{{ paragraph }}</p>
        <div v-if="buttonText">
-        <Button :label="buttonText" @click="$emit('button-click')" />
+        <Button :label="buttonText" variant="primary" :loading="loading" :leftIcon="IconCheck" @click="handleClick" />
        </div>
     </div>
 </template>
 
 <script>
-import Button from './Button.vue'
+import Button from './MyButton.vue'
+import IconCheck from './IconCheck.vue';
+import IconRight from './IconRight.vue';
 
  export default {
     name: 'Card',
-    components: { Button },
+    components: { Button, IconCheck, IconRight },
+    data() {
+        return {
+            IconCheck,
+            loading: false,
+            IconRight
+        }
+    },
     props: {
         title: String,
         subText: String,
@@ -28,6 +37,16 @@ import Button from './Button.vue'
             return {
                 backgroundImage: `url(${this.mediaHref})`,
             }
+        }
+    },
+    methods: {
+        handleClick() {
+            this.loading = true;
+            this.$emit('button-click');
+            setTimeout(() => {
+                this.loading = false;
+                this.$emit('success');
+            }, 2000);
         }
     }
  }
