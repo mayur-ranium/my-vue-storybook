@@ -1,4 +1,4 @@
-import '../src/style.css';
+import '../src/assets/main.css'
 
 /** @type { import('@storybook/vue3-vite').Preview } */
 const preview = {
@@ -7,6 +7,7 @@ const preview = {
       matchers: {
        color: /(background|color)$/i,
        date: /Date$/i,
+       actions: { argTypesRegex: "^on[A-Z].*" },
       },
     },
 

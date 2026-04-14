@@ -1,8 +1,5 @@
+@import "tailwindcss";
 
-
-body {
-  margin: 0;
-}
 
 #app {
   width: 1126px;
@@ -16,4 +13,11 @@ body {
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.179);
 }
-
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-top: 20px;
+}
