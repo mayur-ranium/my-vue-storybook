@@ -4,15 +4,18 @@
        <h1 class="title">{{ title }}</h1>
        <small class="subtitle">{{ subText }}</small>
        <p class="supporting-text">{{ paragraph }}</p>
-       <div v-if="buttonText" >
-        <a class="button-class">{{ buttonText }}</a>
+       <div v-if="buttonText">
+        <Button :label="buttonText" @click="$emit('button-click')" />
        </div>
     </div>
 </template>
 
 <script>
+import Button from './Button.vue'
+
  export default {
     name: 'Card',
+    components: { Button },
     props: {
         title: String,
         subText: String,
@@ -51,19 +54,6 @@
     letter-spacing: normal;
     margin: 0.5rem 0 0.25rem;
     color: #000;
-}
-.button-class {
-    color: rgb(247, 30, 247);
-    letter-spacing: 0.05em;
-    padding: 0.5rem;
-    cursor: pointer;
-    transition: 0.3s all linear;
-    font-weight: bold;
-    border-radius: 12px;
-}
-
-.button-class:hover {
-    background-color: rgb(224, 173, 224);
 }
 
 </style>
