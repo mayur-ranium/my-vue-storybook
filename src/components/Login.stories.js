@@ -1,6 +1,6 @@
 import Login from "./Login.vue";
 import { linkTo } from "@storybook/addon-links";
-import { within, userEvent } from "@storybook/test";
+import { within, userEvent } from "storybook/test";
 
 export default {
   title: "Auth/Login",
