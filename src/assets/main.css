@@ -7,7 +7,7 @@ body {
   text-align: left;
   border-inline: 1px solid var(--border);
   min-height: 100svh;
-  background-color: rgba(0, 0, 0, 0.179);
+  background-color: rgba(249, 246, 246, 0.179);
 }
 .card-container {
   display: flex;
