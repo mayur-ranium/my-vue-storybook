@@ -1,4 +1,5 @@
 <script setup>
+import Dropdown from './Dropdown/Dropdown.vue'
 import Login from "./Login.vue";
 import Button from "../stories/Button.vue";
 import MyNavbar from "./Navbar/MyNavbar.vue";
@@ -40,7 +41,25 @@ function handleSubmit() {
 <template>
   <div>
     <!-- Navbar -->
-    <MyNavbar logo="MyWebsite" :links="navLinks" @navigate="handleNav" />
+    <MyNavbar :logo="MyWebsite" :links="navLinks">
+     <template #actions>
+       <Dropdown>
+        <!-- Trigger -->
+        <template #trigger>
+         <button class="hover:bg-gray-300 px-3 py-1 rounded">
+           Profile ▼
+         </button>
+        </template>
+
+        <!-- Menu -->
+        <ul class="text-black">
+          <li class="p-2 hover:bg-gray-100 cursor-pointer">Profile</li>
+          <li class="p-2 hover:bg-gray-100 cursor-pointer">Settings</li>
+          <li class="p-2 hover:bg-gray-100 cursor-pointer">Logout</li>
+        </ul>
+       </Dropdown>
+     </template>
+    </MyNavbar>
 
 
     <div class="flex justify-center flex-col items-center">
@@ -71,6 +90,10 @@ function handleSubmit() {
 
 <script>
 export default {
+  components: {
+    MyNavbar,
+    Dropdown,
+  },
   name: "HelloWorld",
   data() {
     return {
