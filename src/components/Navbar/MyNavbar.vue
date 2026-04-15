@@ -13,6 +13,22 @@
              {{ item.name }}
             </li>
           </ul>
+          <Dropdown v-if="dropdown">
+            <template #trigger>
+              <button class="bg-gray-200 px-3 py-1 rounded">
+                {{ dropdown.label }}
+              </button>
+            </template>
+            <ul class="text-black">
+              <li
+                v-for="item in dropdown.items"
+                :key="item.name"
+                class="p-2 hover:bg-gray-100 cursor-pointer"
+              >
+                {{ item.name }}
+              </li>
+            </ul>
+          </Dropdown>
           <div class="flex items-center gap-3">
            <slot name="actions"/>
           </div>
@@ -27,7 +43,7 @@
     </nav>
 
     <div v-if="isOpen" class="md:hidden bg-white shadow px-6 py-4">
-      <ul class="flex flex-col gap-4"> 
+      <ul class="flex flex-col gap-4">
         <li v-for="item in links" :key="item.name" class="cursor-pointer hover:text-blue-600" @click="$emit('navigate', item)">
           {{ item.name }}
         </li>
@@ -37,9 +53,13 @@
 
 
 <script>
+import Dropdown from '../Dropdown/Dropdown.vue';
 
 export default {
     name: 'MyNavbar',
+    components: {
+      Dropdown
+    },
     props: {
         logo: {
             type: String,
@@ -48,6 +68,10 @@ export default {
         links: {
             type: Array,
             default: () => []
+        },
+        dropdown : {
+          type: Object,
+          default: null
         }
     },
     data() {
