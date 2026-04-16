@@ -1,7 +1,7 @@
 import MyButton from './MyButton.vue';
-import IconCheck from './IconCheck.vue';
-import IconLeft from './IconLeft.vue';
-import IconRight from './IconRight.vue';
+import IconCheck from './Icons/IconCheck.vue';
+import IconLeft from './Icons/IconLeft.vue';
+import IconRight from './Icons/IconRight.vue';
 
 export default {
   title: 'Components/MyButton',
