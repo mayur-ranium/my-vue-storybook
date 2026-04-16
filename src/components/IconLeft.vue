@@ -1,5 +1,0 @@
-<template>
-  <svg viewBox="0 0 24 24" fill="currentColor">
-    <path d="M15 18l-6-6 6-6" />
-  </svg>
-</template>
