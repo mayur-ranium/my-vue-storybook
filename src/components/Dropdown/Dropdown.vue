@@ -20,7 +20,6 @@ export default {
     },
     methods: {
         toggle() {
-            console.log('clicked', this.isOpen)
             this.isOpen = !this.isOpen
         }
     }
