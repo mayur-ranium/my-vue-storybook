@@ -42,3 +42,10 @@ export const Small = {
     label: 'Button',
   },
 };
+
+export const NewStory = {
+  args: {
+    primary: false,
+    label: "Button"
+  }
+};
