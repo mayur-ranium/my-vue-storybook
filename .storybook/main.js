@@ -14,6 +14,7 @@ const config = {
     "@storybook/addon-onboarding",
     "@storybook/addon-links"
   ],
-  "framework": "@storybook/vue3-vite"
+  "framework": "@storybook/vue3-vite",
+  "staticDirs": ["../public"]
 };
 export default config;

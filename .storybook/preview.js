@@ -1,4 +1,7 @@
 import '../src/assets/main.css'
+import { initialize, mswLoader } from 'msw-storybook-addon';
+
+initialize();
 
 /** @type { import('@storybook/vue3-vite').Preview } */
 const preview = {
@@ -20,3 +23,4 @@ const preview = {
 };
 
 export default preview;
+export const loaders = [mswLoader];
