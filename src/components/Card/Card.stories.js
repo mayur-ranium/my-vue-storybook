@@ -1,4 +1,5 @@
 import Card from "./Card.vue";
+import { inject } from 'vue'
 
 export default {
     title: 'Components/Card',
@@ -8,7 +9,12 @@ export default {
         subText: String,
         mediaHref: String,
         paragraph: String
-    }
+    },
+    setup() {
+    const theme = inject('theme')
+
+    return { theme }
+  }
 }
 
 

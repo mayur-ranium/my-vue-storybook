@@ -15,6 +15,7 @@ import Button from '../MyButton.vue'
 import IconCheck from '../Icons/IconCheck.vue';
 import IconRight from '../Icons/IconRight.vue';
 
+
  export default {
     name: 'Card',
     components: { Button, IconCheck, IconRight },
@@ -55,7 +56,7 @@ import IconRight from '../Icons/IconRight.vue';
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 .card {
-    background-color: #fff;
+    background-color: var(--bg-color, #fff);
     border-radius: 0.2rem;
     padding: 0.8rem;
     box-shadow: rgba(150, 150, 150) 0px 0px 3px;
@@ -72,7 +73,7 @@ import IconRight from '../Icons/IconRight.vue';
     font-size: 1.25rem;
     letter-spacing: normal;
     margin: 0.5rem 0 0.25rem;
-    color: #000;
+    color: var(--text-color, #000);
 }
 
 </style>

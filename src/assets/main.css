@@ -17,3 +17,18 @@ body {
   align-items: center;
   margin-top: 20px;
 }
+
+:root {
+  --bg-color: white;
+  --text-color: black;
+}
+
+.dark {
+  --bg-color: #111;
+  --text-color: white;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}

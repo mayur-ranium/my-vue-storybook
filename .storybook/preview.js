@@ -1,5 +1,7 @@
 import '../src/assets/main.css'
 import { initialize, mswLoader } from 'msw-storybook-addon';
+import { h } from 'vue'
+import { createThemeProvider } from '../src/providers/theme'
 
 initialize();
 
@@ -11,6 +13,7 @@ const preview = {
        color: /(background|color)$/i,
        date: /Date$/i,
       },
+      actions: { argTypesRegex: "^on[A-Z].*" },
     },
 
     a11y: {
@@ -21,6 +24,35 @@ const preview = {
     }
   },
 };
+
+export const globalTypes = {
+  theme: {
+    name: 'Theme',
+    description: 'Global theme switcher',
+    defaultValue: 'light',
+    toolbar: {
+      icon: 'circlehollow',
+      items: ['light', 'dark'],
+      showName: true,
+    },
+  },
+}
+
+export const decorators = [
+  (story, context) => {
+    document.documentElement.className = context.globals.theme ?? 'light'
+
+    return {
+      setup() {
+        createThemeProvider(context.globals.theme)
+        return {}
+      },
+      render() {
+        return h('div', {}, [h(story())])
+      },
+    }
+  },
+]
 
 export default preview;
 export const loaders = [mswLoader];
