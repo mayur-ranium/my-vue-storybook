@@ -13,6 +13,7 @@ export default {
     },
     loading: { control: 'boolean' },
     disabled: { control: 'boolean' },
+    onclick: { action: 'click' }
   },
 };
 
