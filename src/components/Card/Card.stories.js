@@ -1,20 +1,17 @@
 import Card from "./Card.vue";
-import { inject } from 'vue'
 
 export default {
     title: 'Components/Card',
     component: Card,
     argTypes: {
-        title: String,
-        subText: String,
-        mediaHref: String,
-        paragraph: String
+        title: { control: 'text' },
+        subText: { control: 'text' },
+        mediaHref: { control: 'text' },
+        paragraph: { control: 'text' },
+        buttonText: { control: 'text' },
+        onButtonClick: { action: 'button-click' },
+        onSuccess: { action: 'success' },
     },
-    setup() {
-    const theme = inject('theme')
-
-    return { theme }
-  }
 }
 
 
