@@ -12,6 +12,7 @@ export default {
         onButtonClick: { action: 'button-click' },
         onSuccess: { action: 'success' },
     },
+    globals: { theme: 'dark' },
 }
 
 

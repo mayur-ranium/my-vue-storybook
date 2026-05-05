@@ -12,7 +12,8 @@ const config = {
     "@storybook/addon-a11y",
     "@storybook/addon-docs",
     "@storybook/addon-onboarding",
-    "@storybook/addon-links"
+    "@storybook/addon-links",
+    "@storybook/addon-themes"
   ],
   "framework": "@storybook/vue3-vite",
   "staticDirs": ["../public"]

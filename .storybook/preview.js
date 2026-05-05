@@ -1,7 +1,7 @@
 import '../src/assets/main.css'
 import { initialize, mswLoader } from 'msw-storybook-addon';
+import { withThemeByClassName } from '@storybook/addon-themes';
 import { h } from 'vue'
-import { createThemeProvider } from '../src/providers/theme'
 
 initialize();
 
@@ -24,26 +24,17 @@ const preview = {
   },
 };
 
-export const globalTypes = {
-  theme: {
-    name: 'Theme',
-    description: 'Global theme switcher',
-    defaultValue: 'light',
-    toolbar: {
-      icon: 'circlehollow',
-      items: ['light', 'dark'],
-      showName: true,
-    },
-  },
-}
-
 export const decorators = [
+  withThemeByClassName({
+    themes: {
+      light: 'light',
+      dark: 'dark',
+    },
+    defaultTheme: 'light',
+  }),
   (story, context) => {
-    document.documentElement.className = context.globals.theme ?? 'light'
-
     return {
       setup() {
-        createThemeProvider(context.globals.theme)
         return {}
       },
       render() {
